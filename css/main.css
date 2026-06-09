@@ -1,227 +1,267 @@
 /* Global rules */
 
+:root {
+  /* Brand Colors */
+  --accent: #2563EB;
+  --accent-hover: #1D4ED8;
+
+  /* Text Hierarchy */
+  --heading-color: #0F172A;
+  --body-color: #334155;
+  --muted-color: #64748B;
+
+  /* Layout Colors */
+  --bg-page: #F8FAFC;
+  --bg-card: #FFFFFF;
+  --border-color: #E2E8F0;
+
+  /* Effects */
+  --shadow: 0 4px 12px rgba(15, 23, 42, 0.06);
+  --shadow-hover: 0 12px 24px rgba(15, 23, 42, 0.08);
+}
+
 html {
-    background-color: whitesmoke;
-    font-size: 0.95em;
+  background-color: var(--bg-page);
+  font-size: 0.95em;
 }
 
 body {
-    font-family: system-ui, -apple-system, sans-serif;
-    line-height: 1.6;
-    background-color: #f9f9f9;
-    color: #333;
-    margin: 0 auto;
-    padding: 20px;
-    max-width:1200px;
-  }
+  font-family: system-ui, -apple-system, sans-serif;
+  line-height: 1.7;
+  background-color: var(--bg-page);
+  color: var(--body-color);
+  margin: 0 auto;
+  padding: 20px;
+  max-width: 1200px;
+}
 
 ::selection {
-    color: #000; 
-    background: #ff0;
+  color: #000;
+  background: #ff0;
 }
 
 h1 {
-    font-weight: normal;
-    margin: auto;
-    background: #fff;
-    line-height: 2.5em;
+  font-weight: 400;
+  margin: auto;
+  background: var(--bg-card);
+  color: var(--heading-color);
+  line-height: 2.5em;
 }
 
 main.wrapper {
-    background-color: white;
-    overflow: auto;
+  background-color: var(--bg-card);
+  overflow: auto;
+  border-radius: 18px;
+  box-shadow: var(--shadow);
 }
 
 p {
-    margin: 1em; /* Top Right Bottom Left (TRBL) */
+  margin: 1em;
 }
 
-h2,h3 {
-    font-weight: normal;
-    margin-left: 1em;
-    line-height: 1em;
+h2,
+h3 {
+  color: var(--heading-color);
+  font-weight: 500;
+  margin-left: 1em;
+  line-height: 1.2em;
 }
 
 a {
-    color:darkcyan;
-    text-decoration: none;
+  color: var(--accent);
+  text-decoration: none;
+  transition: color 0.2s ease;
 }
 
 a:hover {
-    color: whitesmoke;
-    background-color: darkcyan;
-    text-decoration: none;
+  color: var(--accent-hover);
+  text-decoration: none;
 }
 
 footer {
-    clear: both;
-    text-align: center;
-    padding: 1em;
+  clear: both;
+  text-align: center;
+  padding: 1em;
+  color: var(--muted-color);
 }
 
 /* end global rules */
+
 
 /* Responsive rules */
 
 /* DESKTOP */
 @media all and (min-width:1200px) {
-    main.wrapper {
-        width: 80%;
-        margin: auto;
-    }
-    
-    h1 {
-        width: 79%;
-        padding-left: 1%;
-    }
-    
-    picture.profile img {
-        width: 50%;
-        float: left;
-        margin-right: 2em;
-    }
-    
+  main.wrapper {
+    width: 80%;
+    margin: auto;
+  }
+
+  h1 {
+    width: 79%;
+    padding-left: 1%;
+  }
+
+  picture.profile img {
+    width: 50%;
+    float: left;
+    margin-right: 2em;
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+  }
 }
 
 /* TABLET */
 @media all and (min-width:501px) and (max-width:1199px) {
-    main.wrapper {
-        width: 90%;
-        margin: auto;
-    }
-    
-    h1 {
-        width: 89%;
-        padding-left: 1%;
-    }
-    
-    picture.profile img {
-        width: 50%;
-        float: right;
-        margin-left: 1em;
-    }
+  main.wrapper {
+    width: 90%;
+    margin: auto;
+  }
 
+  h1 {
+    width: 89%;
+    padding-left: 1%;
+  }
+
+  picture.profile img {
+    width: 50%;
+    float: right;
+    margin-left: 1em;
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+  }
 }
 
 /* PHONE */
 @media all and (max-width:500px) {
-    main.wrapper {
-        width: 100%;
-    }
-    
-    h1 {
-        width: 99%;
-        padding-left: 1%;
-    }
-    
-    picture.profile img {
-        width: 100%;
-    }
-    
+  main.wrapper {
+    width: 100%;
+  }
+
+  h1 {
+    width: 99%;
+    padding-left: 1%;
+  }
+
+  picture.profile img {
+    width: 100%;
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+  }
 }
 
+
 /* start project container rules */
-  
+
 .projects-container {
-    max-width: 900px;  /* Keeps things readable on desktop */
-    margin: 0 auto;
-    padding: 20px;
-  }
-  
-  /* The Main Project Card Wrapper */
-  .project-card {
-    display: flex;
-    flex-direction: row; /* Default layout: Image left, text right */
-    align-items: center;
-    gap: 30px;
-    background: #ffffff;
-    border: 1px solid #e2e8f0;
-    border-radius: 12px; /* Smooth rounded corners */
-    padding: 24px;
-    margin-bottom: 30px;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-    transition: transform 0.2s ease;
-  }
-  
-  .project-card:hover {
-    transform: translateY(-2px); /* Subtle interaction cue */
-  }
-  
-  /* The Magic Mirror: Automatically alternate left/right layout */
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* The Main Project Card Wrapper */
+.project-card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 30px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 24px;
+  margin-bottom: 30px;
+  box-shadow: var(--shadow);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
+}
+
+/* Automatically alternate left/right layout */
+.project-card:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+/* Image Control Group */
+.project-image {
+  flex-shrink: 0;
+}
+
+.project-image img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid #cbd5e1;
+}
+
+/* Content & CTA Link Elements */
+.project-content {
+  flex-grow: 1;
+}
+
+.project-content h2 {
+  margin-top: 0;
+  color: var(--heading-color);
+}
+
+.project-content p {
+  color: var(--body-color);
+}
+
+.project-links {
+  margin-top: 20px;
+  display: flex;
+  gap: 12px;
+}
+
+/* Flexible, clean Button styles */
+.btn {
+  display: inline-block;
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: background-color 0.2s ease, transform 0.2s ease, color 0.2s ease;
+}
+
+.demo-btn {
+  background-color: var(--accent);
+  color: #ffffff;
+}
+
+.demo-btn:hover {
+  background-color: var(--accent-hover);
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+.repo-btn {
+  background-color: #0F172A;
+  color: #ffffff;
+  border: none;
+}
+
+.repo-btn:hover {
+  background-color: #1E293B;
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+/* Responsive Overrides: If screen is small, stack everything vertically */
+@media (max-width: 650px) {
+  .project-card,
   .project-card:nth-child(even) {
-    flex-direction: row-reverse; /* Flips the order for every second card */
+    flex-direction: column;
+    text-align: center;
   }
-  
-  /* Image Control Group */
-  .project-image {
-    flex-shrink: 0; /* Prevents text from squeezing the image container */
-  }
-  
-  .project-image img {
-    width: 150px;
-    height: 150px;
-    object-fit: cover; /* Forces screenshots to crop nicely instead of squishing */
-    border-radius: 8px;
-    border: 1px solid #cbd5e1;
-  }
-  
-  /* Content & CTA Link Elements */
-  .project-content {
-    flex-grow: 1;
-  }
-  
-  .project-content h2 {
-    margin-top: 0;
-    color: #1e293b;
-  }
-  
+
   .project-links {
-    margin-top: 20px;
-    display: flex;
-    gap: 12px;
+    justify-content: center;
   }
-  
-  /* Flexible, clean Button styles */
-  .btn {
-    display: inline-block;
-    text-decoration: none;
-    padding: 8px 16px;
-    border-radius: 6px;
-    font-size: 0.9rem;
-    font-weight: 500;
-    transition: background-color 0.2s;
-  }
-  
-  .demo-btn {
-    background-color: darkcyan;
-    color: #ffffff;
-  }
-  
-  .demo-btn:hover {
-    background-color: rgb(95, 95, 95);
-  }
-  
-  .repo-btn {
-    background-color: #f1f5f9;
-    color: #334155;
-    border: 1px solid #cbd5e1;
-  }
-  
-  .repo-btn:hover {
-    background-color: rgb(95, 95, 95);
-  }
-  
-  /* Responsive Overrides: If screen is small, stack everything vertically */
-  @media (max-width: 650px) {
-    .project-card, 
-    .project-card:nth-child(even) {
-      flex-direction: column;
-      text-align: center;
-    }
-    
-    .project-links {
-      justify-content: center;
-    }
-  }
+}
 
 /* end project container rules */
