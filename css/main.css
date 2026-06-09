@@ -73,7 +73,7 @@ a {
   transition: color 0.2s ease;
 }
 
-a:hover {
+a:not(.btn):hover {
   color: var(--accent-hover);
   text-decoration: none;
 }
@@ -194,7 +194,7 @@ footer {
   height: 150px;
   object-fit: cover;
   border-radius: 8px;
-  border: 1px solid #cbd5e1;
+  border: 1px solid var(--border-color);
 }
 
 /* Content & CTA Link Elements */
